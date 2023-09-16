@@ -2,10 +2,10 @@
 
 public class Program
 {
-    public static void Calculate(int x, int y, out int sum, out int product)
+
+    public static (int Sum, int Product) Calculate(int x, int y)
     {
-        sum = x + y;
-        product = x * y;
+        return (x + y, x * y);
     }
 
     public static void Main(string[] args)
@@ -13,9 +13,9 @@ public class Program
         const int x = 2;
         const int y = 3;        
 
-        Calculate(x, y, out int sum, out int product);
+        var result = Calculate(x, y);
 
-        System.Console.WriteLine($"{x} + {y} = {sum}");
-        System.Console.WriteLine($"{x} * {y} = {product}");
+        System.Console.WriteLine($"{x} + {y} = {result.Sum}");
+        System.Console.WriteLine($"{x} * {y} = {result.Product}");
     }
 }

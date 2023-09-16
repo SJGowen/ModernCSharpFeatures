@@ -15,7 +15,7 @@ public class Program
 
         var result = Calculate(x, y);
 
-        System.Console.WriteLine($"{x} + {y} = {result.Sum}");
-        System.Console.WriteLine($"{x} * {y} = {result.Product}");
+        Console.WriteLine($"{x} + {y} = {result.Sum}");
+        Console.WriteLine($"{x} * {y} = {result.Product}");
     }
 }

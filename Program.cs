@@ -8,35 +8,17 @@ public class Money
 
     public decimal Value
     {
-        get
-        {
-            return value;
-        }
-        set
-        {
-            SetValue(value);
-        }
+        get => value;
+        set => SetValue(value);
     }
 
-    public Money(decimal value)
-    {
-        SetValue(value);
-    }
+    public Money(decimal value) => SetValue(value);
 
-    private void SetValue(decimal newValue)
-    {
-        value = newValue >= 0 ? newValue : throw new Exception();
-    }
+    private void SetValue(decimal newValue) => value = newValue >= 0 ? newValue : throw new Exception();
 
-    public string AsString
-    {
-        get { return "£" + value; }
-    }
+    public string AsString => "£" + value;
 
-    public override string ToString()
-    {
-        return $"Your money is {AsString}";
-    }
+    public override string ToString() => $"Your money is {AsString}";
 }
 
 public class Program

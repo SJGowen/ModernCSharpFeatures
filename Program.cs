@@ -1,63 +1,41 @@
+using ModernCSharpFeatures;
+
 namespace ModernCSharpFeatures;
 
-public class Tree
+public class Money
 {
-    public int Value { get; }
-    private Tree Left { get; }
-    private Tree Right { get; }
+    private decimal value;
 
-    public Tree(int value, Tree left = null, Tree right = null)
+    public decimal Value
     {
-        Value = value;
-        Left = left;
-        Right = right;
-    }
-
-    public void PrintInPreOrder(string format)
-    {
-        PrintInPreOrder(this);
-
-        void PrintInPreOrder(Tree tree)
+        get
         {
-            if (tree == null) return;
-
-            PrintValue(tree, format);
-            PrintInPreOrder(tree.Left);
-            PrintInPreOrder(tree.Right);
+            return value;
+        }
+        set
+        {
+            SetValue(value);
         }
     }
 
-    public void PrintInOrder(string format)
+    public Money(decimal value)
     {
-        PrintInOrder(this);
-
-        void PrintInOrder(Tree tree)
-        {
-            if (tree == null) return;
-
-            PrintInOrder(tree.Left);
-            PrintValue(tree, format);
-            PrintInOrder(tree.Right);
-        }
+        SetValue(value);
     }
 
-    public void PrintInPostOrder(string format)
+    private void SetValue(decimal newValue)
     {
-        PrintInPostOrder(this);
-
-        void PrintInPostOrder(Tree tree)
-        {
-            if (tree == null) return;
-
-            PrintInPostOrder(tree.Left);
-            PrintInPostOrder(tree.Right);
-            PrintValue(tree, format);
-        }
+        value = newValue >= 0 ? newValue : throw new Exception();
     }
 
-    private static void PrintValue(Tree tree, string format)
+    public string AsString
     {
-        Console.Write($"{format} ", tree.Value);
+        get { return "£" + value; }
+    }
+
+    public override string ToString()
+    {
+        return $"Your money is {AsString}";
     }
 }
 
@@ -65,26 +43,21 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine(@"Tree:
-         4
-       /   \
-      2     6
-     / \   / \
-    1   3 5   7
-        ");
+        var money = new Money(10);
 
-        var tree = new Tree(
-            4,
-            new Tree(2, new Tree(1), new Tree(3)),
-            new Tree(6, new Tree(5), new Tree(7))
-        );
+        Console.WriteLine(money);
 
-        Console.WriteLine("Print in pre order: ");
-        tree.PrintInPreOrder("<{0}>");
-        Console.WriteLine("\n\nPrint in order: ");
-        tree.PrintInOrder("{0}");
-        Console.WriteLine("\n\nPrint in post order: ");
-        tree.PrintInPostOrder("[{0}]");
-        Console.WriteLine();
+        try
+        {
+            money.Value = -100;
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("You can't set money to a negative number!");
+        }
+
+        money.Value = 100;
+
+        Console.WriteLine(money);
     }
 }

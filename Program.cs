@@ -17,17 +17,8 @@ public class Program
 
     public static double Area(Shape shape)
     {
-        var square = shape as Square;
-        if (square != null)
-        {
-            return square.SideLength * square.SideLength;
-        }
-
-        var circle = shape as Circle;
-        if (circle != null)
-        {
-            return circle.Radius * circle.Radius * Math.PI;
-        }
+        if (shape is Square square) return square.SideLength * square.SideLength;
+        if (shape is Circle circle) return circle.Radius * circle.Radius * Math.PI;
 
         throw new InvalidOperationException("Invalid Shape");
     }

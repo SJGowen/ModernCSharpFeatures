@@ -15,44 +15,44 @@ public class Tree
 
     public void PrintInPreOrder(string format)
     {
-        PrintInPreOrder(this, format);
+        PrintInPreOrder(this);
+
+        void PrintInPreOrder(Tree tree)
+        {
+            if (tree == null) return;
+
+            PrintValue(tree, format);
+            PrintInPreOrder(tree.Left);
+            PrintInPreOrder(tree.Right);
+        }
     }
 
     public void PrintInOrder(string format)
     {
-        PrintInOrder(this, format);
+        PrintInOrder(this);
+
+        void PrintInOrder(Tree tree)
+        {
+            if (tree == null) return;
+
+            PrintInOrder(tree.Left);
+            PrintValue(tree, format);
+            PrintInOrder(tree.Right);
+        }
     }
 
     public void PrintInPostOrder(string format)
     {
-        PrintInPostOrder(this, format);
-    }
+        PrintInPostOrder(this);
 
-    private void PrintInPreOrder(Tree tree, string format)
-    {
-        if (tree == null) return;
+        void PrintInPostOrder(Tree tree)
+        {
+            if (tree == null) return;
 
-        PrintValue(tree, format);
-        PrintInPreOrder(tree.Left, format);
-        PrintInPreOrder(tree.Right, format);
-    }
-
-    private void PrintInOrder(Tree tree, string format)
-    {
-        if (tree == null) return;
-
-        PrintInOrder(tree.Left, format);
-        PrintValue(tree, format);
-        PrintInOrder(tree.Right, format);
-    }
-
-    private void PrintInPostOrder(Tree tree, string format)
-    {
-        if (tree == null) return;
-
-        PrintInPostOrder(tree.Left, format);
-        PrintInPostOrder(tree.Right, format);
-        PrintValue(tree, format);
+            PrintInPostOrder(tree.Left);
+            PrintInPostOrder(tree.Right);
+            PrintValue(tree, format);
+        }
     }
 
     private static void PrintValue(Tree tree, string format)

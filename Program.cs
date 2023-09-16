@@ -80,11 +80,11 @@ public class Program
         );
 
         Console.WriteLine("Print in pre order: ");
-        tree.PrintInPreOrder("{0}");
+        tree.PrintInPreOrder("<{0}>");
         Console.WriteLine("\n\nPrint in order: ");
-        tree.PrintInOrder("[{0}]");
+        tree.PrintInOrder("{0}");
         Console.WriteLine("\n\nPrint in post order: ");
-        tree.PrintInPostOrder("<{0}>");
+        tree.PrintInPostOrder("[{0}]");
         Console.WriteLine();
     }
 }

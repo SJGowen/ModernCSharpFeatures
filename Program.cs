@@ -83,7 +83,7 @@ public class Program
 
     public static void DisplayFeature(int toDisplay, bool newWay)
     {
-        Console.WriteLine($"{toDisplay} {newWay}\n");
+        //Console.WriteLine($"{toDisplay} {newWay}\n");
         if (newWay) 
             DisplayNewFeature(toDisplay);
         else
@@ -101,6 +101,14 @@ public class Program
                     Process.Start("code", "TupleNewFeature.cs");
                 break;
             }
+            case 2: 
+            {
+                var feature = new CastUsingIsNewFeature();
+                if (GetBoolFromPrompt("Do you want to view code?")) 
+                    Process.Start("code", "CastUsingIsNewFeature.cs");
+                break;
+            }
+
             default: 
             {
                 break;
@@ -117,6 +125,13 @@ public class Program
                 var feature = new TupleOldFeature();
                 if (GetBoolFromPrompt("Do you want to view code?"))
                     Process.Start("code", "TupleOldFeature.cs");
+                break;
+            }
+            case 2: 
+            {
+                var feature = new CastUsingIsOldFeature();
+                if (GetBoolFromPrompt("Do you want to view code?"))
+                    Process.Start("code", "CastUsingIsOldFeature.cs");
                 break;
             }
             default: 

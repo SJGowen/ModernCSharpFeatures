@@ -1,6 +1,6 @@
 ﻿namespace ModernCSharpFeatures;
 
-public class Program
+public class CastUsingIsOldFeature
 {
 
     public class Shape {}
@@ -17,13 +17,22 @@ public class Program
 
     public static double Area(Shape shape)
     {
-        if (shape is Square square) return square.SideLength * square.SideLength;
-        if (shape is Circle circle) return circle.Radius * circle.Radius * Math.PI;
+        var square = shape as Square;
+        if (square != null)
+        {
+            return square.SideLength * square.SideLength;
+        }
 
+        var circle = shape as Circle;
+        if (circle != null)
+        {
+            return circle.Radius * circle.Radius * Math.PI;
+        }
+        
         throw new InvalidOperationException("Invalid Shape");
     }
 
-    public static void Main(string[] args)
+    public CastUsingIsOldFeature()
     {
         var square = new Square { SideLength = 10 };
         var circle = new Circle { Radius = 10 };

@@ -105,10 +105,23 @@ public class Program
             {
                 var feature = new CastUsingIsNewFeature();
                 if (GetBoolFromPrompt("Do you want to view code?")) 
-                    Process.Start("code", "CastUsingIsNewFeature.cs");
+                    Process.Start("code", "CastingUsingIsNewFeature.cs");
                 break;
             }
-
+            case 3: 
+            {
+                var feature = new LocalFunctionsNewFeatures();
+                if (GetBoolFromPrompt("Do you want to view code?")) 
+                    Process.Start("code", "LocalFunctionsNewFeatures.cs");
+                break;
+            }
+            case 4: 
+            {
+                var feature = new ExpressionBodiedMembersNewFeatures();
+                if (GetBoolFromPrompt("Do you want to view code?")) 
+                    Process.Start("code", "ExpressionBodiedMembersNewFeatures.cs");
+                break;
+            }
             default: 
             {
                 break;
@@ -131,7 +144,21 @@ public class Program
             {
                 var feature = new CastUsingIsOldFeature();
                 if (GetBoolFromPrompt("Do you want to view code?"))
-                    Process.Start("code", "CastUsingIsOldFeature.cs");
+                    Process.Start("code", "CastingUsingIsOldFeature.cs");
+                break;
+            }
+            case 3: 
+            {
+                var feature = new LocalFunctionsOldFeatures();
+                if (GetBoolFromPrompt("Do you want to view code?"))
+                    Process.Start("code", "LocalFunctionsOldFeatures.cs");
+                break;
+            }
+            case 4: 
+            {
+                var feature = new ExpressionBodiedMembersOldFeatures();
+                if (GetBoolFromPrompt("Do you want to view code?"))
+                    Process.Start("code", "ExpressionBodiedMembersOldFeatures.cs");
                 break;
             }
             default: 

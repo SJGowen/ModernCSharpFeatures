@@ -61,7 +61,9 @@ public class Program
         var intEntry = -1;
         do
         {
-            var entry = GetReplyFromPrompt(prompt);
+            Console.WriteLine(prompt);
+            Console.Write("Enter your choice (y/n): ");
+            var entry = Console.ReadLine();
             if (entry.Length > 0 && entry.ToLower() == "y") entry = "1";
             if (entry.Length > 0 && entry.ToLower() == "n") entry = "0";
             if (!int.TryParse(entry, out intEntry))
@@ -71,14 +73,6 @@ public class Program
             }
         } while (intEntry < 0 || intEntry > 1);
         return intEntry == 1;
-    }
-
-    public static string GetReplyFromPrompt(string prompt)
-    {
-        //Console.Clear();
-        Console.WriteLine(prompt);
-        Console.Write("Enter your choice (y/n): ");
-        return Console.ReadLine();
     }
 
     public static void DisplayFeature(int toDisplay, bool newWay)

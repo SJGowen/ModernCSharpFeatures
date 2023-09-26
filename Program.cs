@@ -11,7 +11,7 @@ public class Program
             if (feature > 0)
             {
                 var newWay = GetNewWay(feature);
-                DisplayOldOrNewFunction(feature, newWay);
+                DisplayFeature(feature, newWay);
             }
         } while (feature > 0);
         Console.WriteLine("Thank you for using the C# Modern Features.");
@@ -50,7 +50,7 @@ public class Program
         Console.WriteLine(" 3 - Local functions within other functions.");
         Console.WriteLine(" 4 - Expression bodied members.\n");
         Console.WriteLine(" 0 - To Exit using C# Modern Features.");
-        Console.Write(" Enter your choice: ");
+        Console.Write("Enter your choice: ");
         return Console.ReadLine();
     }
 
@@ -64,7 +64,7 @@ public class Program
             if (entry.Length > 0 && entry.ToLower() == "n") entry = "0";
             if (!int.TryParse(entry, out intEntry))
             {
-                System.Console.WriteLine("Sorry, that is an invalid entry!\n");
+                Console.WriteLine("Sorry, that is an invalid entry!\n");
                 intEntry = -1;
             }
         } while (intEntry < 0 || intEntry > 1);
@@ -75,11 +75,12 @@ public class Program
     {
         //Console.Clear();
         Console.WriteLine("Do you want to view the modern way of implementing this feature?");
+        Console.Write("Enter your choice (y/n): ");
         return Console.ReadLine();
     }
 
-    public static void DisplayOldOrNewFunction(int toDisplay, bool newWay)
+    public static void DisplayFeature(int toDisplay, bool newWay)
     {
-        System.Console.WriteLine($"{toDisplay}, {newWay}\n");
+        Console.WriteLine($"{toDisplay} {newWay}\n");
     }
 }

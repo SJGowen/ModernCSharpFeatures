@@ -1,14 +1,14 @@
 ﻿namespace ModernCSharpFeatures;
 
-public class Program
+public class TupleNewFeature 
 {
 
     public static (int Sum, int Product) Calculate(int x, int y)
     {
         return (x + y, x * y);
     }
-
-    public static void Main(string[] args)
+    
+    public TupleNewFeature()
     {
         const int x = 2;
         const int y = 3;        

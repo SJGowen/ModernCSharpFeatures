@@ -1,5 +1,7 @@
 namespace ModernCSharpFeatures;
 
+using System.Diagnostics;
+
 public class Program
 {
     public static void Main(string[] args)
@@ -82,5 +84,47 @@ public class Program
     public static void DisplayFeature(int toDisplay, bool newWay)
     {
         Console.WriteLine($"{toDisplay} {newWay}\n");
+        if (newWay) 
+            DisplayNewFeature(toDisplay);
+        else
+            DisplayOldFeature(toDisplay);
+    }
+
+    public static void DisplayNewFeature(int toDisplay)
+    {
+        switch (toDisplay) 
+        {
+            case 1: 
+            {
+                var feature = new TupleNewFeature();
+                System.Console.WriteLine("Do you want to view code?");
+                var answer = Console.ReadLine();
+                if (answer?.Length > 0 && answer.ToLower() == "y") Process.Start("code", "TupleNewFeature.cs");
+                break;
+            }
+            default: 
+            {
+                break;
+            }
+        }
+    }
+
+    public static void DisplayOldFeature(int toDisplay)
+    {
+        switch (toDisplay) 
+        {
+            case 1: 
+            {
+                var feature = new TupleOldFeature();
+                System.Console.WriteLine("Do you want to view code?");
+                var answer = Console.ReadLine();
+                if (answer?.Length > 0 && answer.ToLower() == "y") Process.Start("code", "TupleOldFeature.cs");
+                break;
+            }
+            default: 
+            {
+                break;
+            }
+        }
     }
 }

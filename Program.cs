@@ -12,7 +12,7 @@ public class Program
             feature = GetValidMenuEntry();
             if (feature > 0)
             {
-                var newWay = GetNewWay(feature);
+                var newWay = GetBoolFromPrompt("Do you want to view the modern way of implementing this feature?");
                 DisplayFeature(feature, newWay);
             }
         } while (feature > 0);
@@ -56,12 +56,12 @@ public class Program
         return Console.ReadLine();
     }
 
-    public static bool GetNewWay(int feature)
+    public static bool GetBoolFromPrompt(string prompt)
     {
         var intEntry = -1;
         do
         {
-            var entry = DisplayNewWay(feature);
+            var entry = GetReplyFromPrompt(prompt);
             if (entry.Length > 0 && entry.ToLower() == "y") entry = "1";
             if (entry.Length > 0 && entry.ToLower() == "n") entry = "0";
             if (!int.TryParse(entry, out intEntry))
@@ -73,10 +73,10 @@ public class Program
         return intEntry == 1;
     }
 
-    public static string DisplayNewWay(int toDisplay)
+    public static string GetReplyFromPrompt(string prompt)
     {
         //Console.Clear();
-        Console.WriteLine("Do you want to view the modern way of implementing this feature?");
+        Console.WriteLine(prompt);
         Console.Write("Enter your choice (y/n): ");
         return Console.ReadLine();
     }
@@ -97,9 +97,8 @@ public class Program
             case 1: 
             {
                 var feature = new TupleNewFeature();
-                System.Console.WriteLine("Do you want to view code?");
-                var answer = Console.ReadLine();
-                if (answer?.Length > 0 && answer.ToLower() == "y") Process.Start("code", "TupleNewFeature.cs");
+                if (GetBoolFromPrompt("Do you want to view code?")) 
+                    Process.Start("code", "TupleNewFeature.cs");
                 break;
             }
             default: 
@@ -116,9 +115,8 @@ public class Program
             case 1: 
             {
                 var feature = new TupleOldFeature();
-                System.Console.WriteLine("Do you want to view code?");
-                var answer = Console.ReadLine();
-                if (answer?.Length > 0 && answer.ToLower() == "y") Process.Start("code", "TupleOldFeature.cs");
+                if (GetBoolFromPrompt("Do you want to view code?"))
+                    Process.Start("code", "TupleOldFeature.cs");
                 break;
             }
             default: 

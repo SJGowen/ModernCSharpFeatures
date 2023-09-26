@@ -72,6 +72,7 @@ public class Program
                 intEntry = -1;
             }
         } while (intEntry < 0 || intEntry > 1);
+        Console.WriteLine();
         return intEntry == 1;
     }
 
@@ -91,28 +92,28 @@ public class Program
             case 1: 
             {
                 var feature = new TupleNewFeature();
-                if (GetBoolFromPrompt("Do you want to view code?")) 
+                if (GetBoolFromPrompt("\nDo you want to view code?")) 
                     Process.Start("code", "TupleNewFeature.cs");
                 break;
             }
             case 2: 
             {
                 var feature = new CastUsingIsNewFeature();
-                if (GetBoolFromPrompt("Do you want to view code?")) 
+                if (GetBoolFromPrompt("\nDo you want to view code?")) 
                     Process.Start("code", "CastingUsingIsNewFeature.cs");
                 break;
             }
             case 3: 
             {
                 var feature = new LocalFunctionsNewFeatures();
-                if (GetBoolFromPrompt("Do you want to view code?")) 
+                if (GetBoolFromPrompt("\nDo you want to view code?")) 
                     Process.Start("code", "LocalFunctionsNewFeatures.cs");
                 break;
             }
             case 4: 
             {
                 var feature = new ExpressionBodiedMembersNewFeatures();
-                if (GetBoolFromPrompt("Do you want to view code?")) 
+                if (GetBoolFromPrompt("\nDo you want to view code?")) 
                     Process.Start("code", "ExpressionBodiedMembersNewFeatures.cs");
                 break;
             }
@@ -130,28 +131,28 @@ public class Program
             case 1: 
             {
                 var feature = new TupleOldFeature();
-                if (GetBoolFromPrompt("Do you want to view code?"))
+                if (GetBoolFromPrompt("\nDo you want to view code?"))
                     Process.Start("code", "TupleOldFeature.cs");
                 break;
             }
             case 2: 
             {
                 var feature = new CastUsingIsOldFeature();
-                if (GetBoolFromPrompt("Do you want to view code?"))
+                if (GetBoolFromPrompt("\nDo you want to view code?"))
                     Process.Start("code", "CastingUsingIsOldFeature.cs");
                 break;
             }
             case 3: 
             {
                 var feature = new LocalFunctionsOldFeatures();
-                if (GetBoolFromPrompt("Do you want to view code?"))
+                if (GetBoolFromPrompt("\nDo you want to view code?"))
                     Process.Start("code", "LocalFunctionsOldFeatures.cs");
                 break;
             }
             case 4: 
             {
                 var feature = new ExpressionBodiedMembersOldFeatures();
-                if (GetBoolFromPrompt("Do you want to view code?"))
+                if (GetBoolFromPrompt("\nDo you want to view code?"))
                     Process.Start("code", "ExpressionBodiedMembersOldFeatures.cs");
                 break;
             }

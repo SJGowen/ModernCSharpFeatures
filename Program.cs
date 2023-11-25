@@ -21,7 +21,7 @@ public class Program
 
     public static int GetValidMenuEntry()
     {
-        var featureCount = 4;
+        var featureCount = 5;
         var intEntry = -1;
         do
         {
@@ -50,7 +50,8 @@ public class Program
         Console.WriteLine(" 1 - Tuples instead of out parameters.");
         Console.WriteLine(" 2 - Casting using 'is' versus 'as'.");
         Console.WriteLine(" 3 - Local functions within other functions.");
-        Console.WriteLine(" 4 - Expression bodied members.\n");
+        Console.WriteLine(" 4 - Expression bodied members.");
+        Console.WriteLine(" 5 - Async Main.\n");
         Console.WriteLine(" 0 - To Exit using C# Modern Features.");
         Console.Write("Enter your choice: ");
         return Console.ReadLine();
@@ -119,6 +120,7 @@ public class Program
             }
             default: 
             {
+                Console.WriteLine($"Sorry your entry of {toDisplay} has not been recognised.");
                 break;
             }
         }
@@ -158,6 +160,7 @@ public class Program
             }
             default: 
             {
+                Console.WriteLine($"Sorry your entry of {toDisplay} has not been recognised.");
                 break;
             }
         }
